@@ -1,0 +1,108 @@
+1. HOME (Landing Page)Sections:
+
+Hero (value prop + CTA)
+Services overview (3 cards with icons)
+Trust signals (certifications, years in business, client count)
+Social proof (2-3 testimonials)
+Final CTA
+Goal: Get them to either contact or click into a service page
+Word count: 200-300 words total2. MANAGED IT SUPPORT (Service Page)Content:
+
+Hero section (what it is, who it's for)
+Problem statement (2-3 sentences)
+What's included (Accordion or bullets):
+
+24/7 monitoring
+Help desk support
+Network maintenance
+Hardware/software support
+Remote + on-site support
+
+
+Response time guarantee (SLA)
+CTA (Get a Free Assessment)
+Word count: 250-400 words3. MANAGED SECURITY (Service Page)Content:
+
+Hero section
+Security threats businesses face (brief)
+What's included:
+
+Cybersecurity monitoring
+Threat detection & response
+Firewall management
+Security audits
+Compliance support (HIPAA, PCI if applicable)
+
+
+CTA (Schedule Security Assessment)
+Word count: 250-400 words4. BACKUP & DISASTER RECOVERY (Service Page)Content:
+
+Hero section
+Business continuity focus (prevent downtime)
+What's included:
+
+Automated backups
+Disaster recovery planning
+Business continuity solutions
+Data protection
+Fast recovery guarantees
+
+
+CTA (Protect Your Business)
+Word count: 250-400 words5. VIRTUAL CIO / IT CONSULTING (Service Page)Content:
+
+Hero section (strategic IT planning)
+Who needs this (growing businesses, new offices)
+What's included:
+
+Strategic IT planning
+Technology roadmap
+Budget planning
+Project management
+New office setup
+Vendor management
+
+
+CTA (Schedule a Strategy Session)
+Word count: 250-400 words6. RESOURCES / BLOG (Optional but Recommended)Content:
+
+Blog post grid/list
+Categories: IT Tips, Security Alerts, Business Technology
+Search functionality (optional)
+Recent posts on homepage
+Purpose:
+
+SEO (long-tail keywords)
+Establish expertise
+Capture organic traffic
+Nurture leads who aren't ready yet
+Posts: Start with 5-10, add monthly7. ABOUTContent:
+
+Company story (3-4 paragraphs, keep brief)
+Mission/values (optional, keep to 1 paragraph)
+Certifications (Microsoft, Cisco, CompTIA, etc.)
+Years in business
+Team section (photos + brief bios if available, or just credentials)
+Client testimonials (3-5 with company names if possible)
+Industries served
+CTA (Want to work with us?)
+Word count: 400-600 words8. CONTACTContent:
+
+Contact form:
+
+Name
+Email
+Phone
+Company name (optional)
+Service interested in (dropdown)
+Message
+Submit button
+
+
+Prominent phone number (big, visible)
+Email address
+Office address/location
+Hours of operation (or "24/7 Emergency Support Available")
+Response time promise ("We respond within 2 hours")
+Optional: Embedded map
+Word count: 100-150 words
