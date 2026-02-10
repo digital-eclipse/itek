@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Phone, Mail, Menu, LayoutGrid, User, FileText } from "lucide-react";
+import { Phone, Mail, Menu, LayoutGrid, User } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -116,11 +116,6 @@ export function Header() {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="/resources">Resources</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
           <div className="flex items-center gap-1">
@@ -179,14 +174,6 @@ export function Header() {
                   {title}
                 </Link>
               ))}
-              <Link
-                href="/resources"
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground hover:bg-accent"
-                onClick={() => setSheetOpen(false)}
-              >
-                <FileText className="size-4 shrink-0 text-muted-foreground" />
-                Resources
-              </Link>
               <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
                 <MobileNavActions onClose={() => setSheetOpen(false)} />
               </div>
