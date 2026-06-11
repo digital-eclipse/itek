@@ -1,45 +1,59 @@
 import Link from "next/link";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { services } from "@/components/landing/ServicesOverview";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/[0.06] bg-background">
-      <div className="mx-auto max-w-8xl px-4 py-10 sm:px-6 lg:px-8 sm:py-12">
-        <div className="grid gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
-          <div className="flex flex-col items-center sm:col-span-2 lg:col-span-1 lg:items-center">
-            <Link href="/" className="inline-flex flex-col items-center gap-0.5 text-center leading-none">
-              <span className="text-xl font-semibold leading-none tracking-tight text-foreground sm:text-2xl">
-                ITEK
-              </span>
-              <span className="text-[10px] font-normal lowercase leading-none text-muted-foreground tracking-widest sm:text-xs">
-                solutions
+    <footer className="bg-[#072446] text-white">
+      {/* Main grid */}
+      <div className="mx-auto max-w-8xl px-4 pt-14 pb-10 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-4">
+          {/* Brand + contact */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-flex flex-col gap-0.5 leading-none">
+              <span className="text-xl font-semibold tracking-tight">Digital Eclipse</span>
+              <span className="text-[10px] font-normal uppercase tracking-widest text-white/50">
+                IT Solutions
               </span>
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Professional technology solutions for your business.
+            <p className="mt-4 text-sm leading-relaxed text-white/60">
+              Enterprise-level IT managed services for healthcare, dental, and growing businesses.
             </p>
-            <p className="mt-4 text-xs text-muted-foreground">
-              © {currentYear} ITEK Solutions. All rights reserved.
-            </p>
-          </div>
-          <div className="flex flex-col items-center lg:col-span-2">
-            <h3 className="text-sm font-medium text-foreground">Solutions</h3>
-            <ul className="mt-4 grid w-full grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2 sm:justify-items-center">
+            <ul className="mt-6 space-y-3">
               <li>
-                <Link
-                  href="/#services"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                <a
+                  href="tel:4165612888"
+                  className="flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-white"
                 >
-                  Overview
-                </Link>
+                  <Phone className="size-4 shrink-0 text-white/40" />
+                  (416) 561-2888
+                </a>
               </li>
+              <li>
+                <a
+                  href="mailto:info@digitaleclipse.ca"
+                  className="flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-white"
+                >
+                  <Mail className="size-4 shrink-0 text-white/40" />
+                  info@digitaleclipse.ca
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Solutions */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/40">
+              Solutions
+            </h3>
+            <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2">
               {services.map(({ title, href }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-sm text-white/70 transition-colors hover:text-white"
                   >
                     {title}
                   </Link>
@@ -47,19 +61,41 @@ export function Footer() {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col items-center">
-            <h3 className="text-sm font-medium text-foreground">Company</h3>
+
+          {/* Company */}
+          <div className="lg:col-span-1">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/40">
+              Company
+            </h3>
             <ul className="mt-4 space-y-2.5">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  About
-                </Link>
-              </li>
+              {[
+                { label: "About", href: "/about" },
+                { label: "Contact", href: "/contact" },
+                { label: "Resources", href: "/resources" },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm text-white/70 transition-colors hover:text-white"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-3 px-4 py-5 sm:flex-row sm:px-6 lg:px-8">
+          <p className="text-xs text-white/40">
+            © {currentYear} Digital Eclipse. All rights reserved.
+          </p>
+          <p className="text-xs text-white/40">
+            Managed IT · Cloud · Security · Strategic IT Leadership
+          </p>
         </div>
       </div>
     </footer>
