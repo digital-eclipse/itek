@@ -64,7 +64,7 @@ function MobileNavActions({ onClose }: { onClose: () => void }) {
         Call
       </Button>
       <Button variant="outline" className="w-full justify-start gap-2" asChild>
-        <a href="mailto:info@digitaleclipse.ca" onClick={onClose}>
+        <a href="mailto:info@iteksolutions.com" onClick={onClose}>
           <Mail className="size-4" />
           Email
         </a>
@@ -124,7 +124,7 @@ export function Header() {
               (416) 561-2888
             </Button>
             <Button variant="ghost" size="icon-sm" asChild>
-              <a href="mailto:info@digitaleclipse.ca" aria-label="Email us">
+              <a href="mailto:info@iteksolutions.com" aria-label="Email us">
                 <Mail className="size-4" />
               </a>
             </Button>
