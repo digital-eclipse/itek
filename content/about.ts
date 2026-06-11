@@ -39,7 +39,7 @@ export const aboutCopy = {
   contact: {
     phone: "(626) 561-4040",
     tollFree: "833-LA-MSSP-9",
-    email: "info@digitaleclipse.ca",
+    email: "support@iteksolutions.ca",
   },
 } as const;
 

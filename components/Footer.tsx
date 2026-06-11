@@ -24,20 +24,20 @@ export function Footer() {
             <ul className="mt-6 space-y-3">
               <li>
                 <a
-                  href="tel:4165612888"
+                  href="tel:+14165612888"
                   className="flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-white"
                 >
                   <Phone className="size-4 shrink-0 text-white/40" />
-                  (416) 561-2888
+                  +1 (416) 561-2888
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@digitaleclipse.ca"
+                  href="mailto:support@iteksolutions.ca"
                   className="flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-white"
                 >
                   <Mail className="size-4 shrink-0 text-white/40" />
-                  info@digitaleclipse.ca
+                  support@iteksolutions.ca
                 </a>
               </li>
             </ul>

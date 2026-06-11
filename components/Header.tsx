@@ -64,7 +64,7 @@ function MobileNavActions({ onClose }: { onClose: () => void }) {
         Call
       </Button>
       <Button variant="outline" className="w-full justify-start gap-2" asChild>
-        <a href="mailto:info@iteksolutions.com" onClick={onClose}>
+        <a href="mailto:support@iteksolutions.ca" onClick={onClose}>
           <Mail className="size-4" />
           Email
         </a>
@@ -121,10 +121,10 @@ export function Header() {
           <div className="flex items-center gap-1">
             <Button variant="ghost" size="sm" onClick={openDialog} aria-label="Call us" className="gap-1.5 text-sm font-medium">
               <Phone className="size-4 shrink-0" />
-              (416) 561-2888
+              +1 (416) 561-2888
             </Button>
             <Button variant="ghost" size="icon-sm" asChild>
-              <a href="mailto:info@iteksolutions.com" aria-label="Email us">
+              <a href="mailto:support@iteksolutions.ca" aria-label="Email us">
                 <Mail className="size-4" />
               </a>
             </Button>
