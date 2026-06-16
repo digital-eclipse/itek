@@ -13,9 +13,9 @@ export function Footer() {
           {/* Brand + contact */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex flex-col gap-0.5 leading-none">
-              <span className="text-xl font-semibold tracking-tight">Digital Eclipse</span>
+              <span className="text-xl font-semibold tracking-tight">ITEK</span>
               <span className="text-[10px] font-normal uppercase tracking-widest text-white/50">
-                IT Solutions
+                Solutions
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
@@ -91,7 +91,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-3 px-4 py-5 sm:flex-row sm:px-6 lg:px-8">
           <p className="text-xs text-white/40">
-            © {currentYear} Digital Eclipse. All rights reserved.
+            © {currentYear} ITEK Solutions. All rights reserved.
           </p>
           <p className="text-xs text-white/40">
             Managed IT · Cloud · Security · Strategic IT Leadership

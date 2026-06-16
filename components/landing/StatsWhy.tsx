@@ -23,7 +23,7 @@ const whyItems = [
   {
     title: "We Know Small Business",
     description:
-      "Metallic isn't a large corporate entity; our team understands the challenges that small-medium businesses face.",
+      "ITEK Solutions isn't a large corporate entity; our team understands the challenges that small-medium businesses face.",
   },
 ];
 

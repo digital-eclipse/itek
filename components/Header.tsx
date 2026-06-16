@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, Menu, LayoutGrid, User } from "lucide-react";
 import {
   NavigationMenu,
@@ -80,16 +81,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-black/[0.06] bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-8xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex flex-col items-center gap-0.5 text-center justify-center leading-none"
-        >
-          <span className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-            ITEK
-          </span>
-          <span className="text-[10px] font-normal lowercase leading-none text-muted-foreground tracking-widest sm:text-xs">
-            solutions
-          </span>
+        <Link href="/" className="flex items-center" aria-label="ITEK Solutions home">
+          <Image
+            src="/logo/logo.png"
+            alt="ITEK Solutions"
+            width={1920}
+            height={1080}
+            priority
+            className="h-10 w-auto sm:h-11"
+          />
         </Link>
 
         {/* Desktop nav */}
