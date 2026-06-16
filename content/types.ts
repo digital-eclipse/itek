@@ -47,5 +47,4 @@ export type ServiceHref =
   | "/managed-security"
   | "/business-continuity"
   | "/backup-disaster-recovery"
-  | "/consulting-strategy"
-  | "/virtual-cio";
+  | "/consulting-strategy";

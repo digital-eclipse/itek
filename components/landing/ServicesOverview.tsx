@@ -8,7 +8,6 @@ import {
   Activity,
   Database,
   Briefcase,
-  LineChart,
   ChevronRight,
   type LucideIcon,
 } from "lucide-react";
@@ -77,14 +76,6 @@ export const services = [
       "We assist with the organization, execution and completion of your IT projects. We offer a virtual CIO experience with strategic, Chief Information Office-level consultation. We keep your projects on target and within budget.",
     href: "/consulting-strategy",
     icon: Briefcase,
-  },
-  {
-    title: "Virtual CIO (vCIO)",
-    shortDescription: "Strategic IT leadership",
-    description:
-      "Need assistance setting things up in a new office? We help get your business up and running quickly by helping you determine what you need.",
-    href: "/virtual-cio",
-    icon: LineChart,
   },
 ];
 

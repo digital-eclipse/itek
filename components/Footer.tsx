@@ -19,7 +19,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
-              Enterprise-level IT managed services for healthcare, dental, and growing businesses.
+              Professional-grade IT managed services for healthcare, dental, and growing businesses.
             </p>
             <ul className="mt-6 space-y-3">
               <li>

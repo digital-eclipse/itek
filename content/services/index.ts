@@ -7,7 +7,6 @@ import { copy as elevateCopy, href as elevateHref } from "./elevate-in-house-it"
 import { copy as futureCopy, href as futureHref } from "./future-proof-infrastructure";
 import { copy as managedSupportCopy, href as managedSupportHref } from "./managed-support";
 import { copy as securityCopy, href as securityHref } from "./managed-security";
-import { copy as vcioCopy, href as vcioHref } from "./virtual-cio";
 
 /**
  * Map of service href to page copy. Add new services by creating a file in this
@@ -22,7 +21,6 @@ const SERVICE_COPY: Record<string, ServicePageCopy> = {
   [businessHref]: businessCopy,
   [backupHref]: backupCopy,
   [consultingHref]: consultingCopy,
-  [vcioHref]: vcioCopy,
 };
 
 /**

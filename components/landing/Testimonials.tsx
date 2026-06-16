@@ -23,21 +23,9 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "ITEK has helped our practice out of IT jams on numerous occasions! Their technicians, Nissan in particular, are professional and prompt to respond — with minimal interference in our day-to-day tasks, minimizing downtime during office hours. We recommend ITEK Solutions.",
-    name: "John Banducci",
-    location: "Dental Practice",
-  },
-  {
-    quote:
       "We have been satisfied clients of ITEK for a number of years now. We're very happy with the full range of services — network services, cloud backup and server maintenance. They've been very responsive for any immediate issues, and we would definitely recommend them.",
     name: "Anthony Tamberg",
     location: "Owner, St. Clair Dental Group",
-  },
-  {
-    quote:
-      "The ITEK team helped us upgrade our server and computers at the office. This project was a success thanks to the team and Nissan, who took care of it from beginning to end, making sure everything was done properly.",
-    name: "Muyal Dentistry",
-    location: "Dental Office",
   },
 ];
 
@@ -101,7 +89,7 @@ export function Testimonials() {
 
         {/* Masonry grid of reviews */}
         <motion.div
-          className="mt-12 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4"
+          className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
@@ -113,7 +101,7 @@ export function Testimonials() {
           {testimonials.map((item) => (
             <motion.figure
               key={item.name}
-              className="break-inside-avoid rounded-xl border border-black/[0.10] bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-shadow hover:shadow-[0_2px_10px_rgba(0,0,0,0.08)]"
+              className="flex h-full flex-col rounded-xl border border-black/[0.10] bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-shadow hover:shadow-[0_2px_10px_rgba(0,0,0,0.08)]"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: {
@@ -127,7 +115,7 @@ export function Testimonials() {
               <blockquote className="mt-4 font-prose text-sm leading-relaxed text-foreground/90">
                 {item.quote}
               </blockquote>
-              <figcaption className="mt-5 flex items-center gap-3 border-t border-black/[0.06] pt-4">
+              <figcaption className="mt-auto flex items-center gap-3 border-t border-black/[0.06] pt-4">
                 <span
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#072446] text-xs font-semibold text-white"
                   aria-hidden="true"
