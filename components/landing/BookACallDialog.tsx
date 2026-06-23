@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { ChevronDown, MessagesSquare } from "lucide-react";
 import {
   Dialog,
   DialogClose,
@@ -14,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { services } from "@/components/landing/ServicesOverview";
 
 type BookACallContextValue = {
   open: boolean;
@@ -99,6 +101,7 @@ function BookACallDialog({
           company: data.get("company"),
           email: data.get("email"),
           phone: data.get("phone"),
+          service: data.get("service"),
           inquiry: data.get("inquiry"),
           website: data.get("website"), // honeypot
           startedAt: startedAtRef.current,
@@ -121,7 +124,7 @@ function BookACallDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-lg">
         <form onSubmit={handleSubmit}>
           {/* Honeypot: hidden from users, bots tend to fill it. */}
           <input
@@ -133,6 +136,9 @@ function BookACallDialog({
             className="absolute left-[-9999px] h-0 w-0 opacity-0"
           />
           <DialogHeader>
+            <div className="mb-1 flex size-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <MessagesSquare className="size-5" />
+            </div>
             <DialogTitle className="text-xl font-semibold tracking-tight">
               Get in touch
             </DialogTitle>
@@ -141,45 +147,73 @@ function BookACallDialog({
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
-            <div className="grid gap-2">
-              <Label htmlFor="book-name">Name</Label>
-              <Input
-                id="book-name"
-                name="name"
-                placeholder="Your name"
-                required
-                className="h-10"
-              />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-2">
+                <Label htmlFor="book-name">
+                  Name <span className="text-destructive">*</span>
+                </Label>
+                <Input
+                  id="book-name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                  className="h-10"
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="book-company">Company</Label>
+                <Input
+                  id="book-company"
+                  name="company"
+                  placeholder="Company name"
+                  className="h-10"
+                />
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-2">
+                <Label htmlFor="book-email">
+                  Email <span className="text-destructive">*</span>
+                </Label>
+                <Input
+                  id="book-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@company.com"
+                  required
+                  className="h-10"
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="book-phone">Phone number</Label>
+                <Input
+                  id="book-phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="+1 (555) 000-0000"
+                  className="h-10"
+                />
+              </div>
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="book-company">Company</Label>
-              <Input
-                id="book-company"
-                name="company"
-                placeholder="Company name"
-                className="h-10"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="book-email">Email</Label>
-              <Input
-                id="book-email"
-                name="email"
-                type="email"
-                placeholder="you@company.com"
-                required
-                className="h-10"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="book-phone">Phone number</Label>
-              <Input
-                id="book-phone"
-                name="phone"
-                type="tel"
-                placeholder="+1 (555) 000-0000"
-                className="h-10"
-              />
+              <Label htmlFor="book-service">Service interested in</Label>
+              <div className="relative">
+                <select
+                  id="book-service"
+                  name="service"
+                  defaultValue=""
+                  className="h-10 w-full appearance-none rounded-md border border-input bg-transparent px-3 py-1 pr-9 text-sm text-foreground shadow-xs outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                >
+                  <option value="">Select a service (optional)</option>
+                  {services.map(({ title }) => (
+                    <option key={title} value={title}>
+                      {title}
+                    </option>
+                  ))}
+                  <option value="Other / Not sure">Other / Not sure</option>
+                </select>
+                <ChevronDown className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" />
+              </div>
             </div>
             <div className="grid gap-2">
               <Label htmlFor="book-inquiry">Inquiry</Label>
@@ -193,7 +227,7 @@ function BookACallDialog({
             </div>
           </div>
           {error ? (
-            <p className="text-sm text-destructive" role="alert">
+            <p className="mb-2 rounded-md bg-destructive/10 px-3 py-2 text-sm text-destructive" role="alert">
               {error}
             </p>
           ) : null}
@@ -204,7 +238,7 @@ function BookACallDialog({
               </Button>
             </DialogClose>
             <Button type="submit" disabled={status === "sending"}>
-              {status === "sending" ? "Sending…" : "Request a call"}
+              {status === "sending" ? "Sending…" : "Send"}
             </Button>
           </DialogFooter>
         </form>

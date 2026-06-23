@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/sheet";
 import { useBookACallDialog } from "@/components/landing/BookACallDialog";
 import { services } from "@/components/landing/ServicesOverview";
+import { INDUSTRIES } from "@/content/industries/registry";
 
 function ListItem({
   title,
@@ -64,11 +65,16 @@ function MobileNavActions({ onClose }: { onClose: () => void }) {
         <Phone className="size-4" />
         Call
       </Button>
-      <Button variant="outline" className="w-full justify-start gap-2" asChild>
-        <a href="mailto:support@iteksolutions.ca" onClick={onClose}>
-          <Mail className="size-4" />
-          Email
-        </a>
+      <Button
+        variant="outline"
+        className="w-full justify-start gap-2"
+        onClick={() => {
+          openDialog();
+          onClose();
+        }}
+      >
+        <Mail className="size-4" />
+        Email
       </Button>
     </>
   );
@@ -116,6 +122,25 @@ export function Header() {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Industries</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[300px] gap-2 p-2">
+                    <ListItem href="/industries" title="Overview" key="industries-overview">
+                      View all industries
+                    </ListItem>
+                    {INDUSTRIES.map(({ label, slug, blurb }) => (
+                      <ListItem
+                        key={slug}
+                        title={label}
+                        href={`/industries/${slug}`}
+                      >
+                        {blurb}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
           <div className="flex items-center gap-1">
@@ -123,10 +148,8 @@ export function Header() {
               <Phone className="size-4 shrink-0" />
               +1 (416) 561-2888
             </Button>
-            <Button variant="ghost" size="icon-sm" asChild>
-              <a href="mailto:support@iteksolutions.ca" aria-label="Email us">
-                <Mail className="size-4" />
-              </a>
+            <Button variant="ghost" size="icon-sm" onClick={openDialog} aria-label="Email us">
+              <Mail className="size-4" />
             </Button>
           </div>
         </div>
@@ -173,6 +196,25 @@ export function Header() {
                 >
                   <Icon className="size-4 shrink-0 text-muted-foreground" />
                   {title}
+                </Link>
+              ))}
+              <Link
+                href="/industries"
+                className="mt-2 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground hover:bg-accent"
+                onClick={() => setSheetOpen(false)}
+              >
+                <LayoutGrid className="size-4 shrink-0 text-muted-foreground" />
+                Industries
+              </Link>
+              {INDUSTRIES.map(({ label, slug, icon: Icon }) => (
+                <Link
+                  key={slug}
+                  href={`/industries/${slug}`}
+                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 pl-10 text-sm font-medium text-foreground hover:bg-accent"
+                  onClick={() => setSheetOpen(false)}
+                >
+                  <Icon className="size-4 shrink-0 text-muted-foreground" />
+                  {label}
                 </Link>
               ))}
               <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">

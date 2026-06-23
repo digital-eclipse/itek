@@ -9,6 +9,7 @@ const ContactSchema = z.object({
   company: z.string().trim().max(120).optional().default(""),
   email: z.string().trim().email("Invalid email").max(200),
   phone: z.string().trim().max(40).optional().default(""),
+  service: z.string().trim().max(120).optional().default(""),
   inquiry: z.string().trim().max(2000).optional().default(""),
   // Anti-spam fields (not real form data):
   website: z.string().max(0).optional().default(""), // honeypot — must be empty
@@ -19,6 +20,19 @@ function getClientIp(req: NextRequest): string {
   const fwd = req.headers.get("x-forwarded-for");
   if (fwd) return fwd.split(",")[0].trim();
   return req.headers.get("x-real-ip")?.trim() || "unknown";
+}
+
+// Which site the submission came from — the app is served on both domains.
+function getSourceWebsite(req: NextRequest): string {
+  const host = (
+    req.headers.get("x-forwarded-host") ||
+    req.headers.get("host") ||
+    ""
+  ).toLowerCase();
+  if (host.includes("itekdental")) return "itekdental.com";
+  if (host.includes("iteksolutions")) return "iteksolutions.ca";
+  // Fallback: list both rather than guess.
+  return "iteksolutions.ca / itekdental.com";
 }
 
 export async function POST(req: NextRequest) {
@@ -74,20 +88,23 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  const sourceWebsite = getSourceWebsite(req);
+  const subjectLabel = data.company || data.name;
+
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from,
     to,
     replyTo: data.email,
-    subject: `New inquiry from ${data.name}${data.company ? ` (${data.company})` : ""}`,
+    subject: `New Website Inquiry – ${subjectLabel}`,
     text: [
-      `Name: ${data.name}`,
-      `Company: ${data.company || "—"}`,
+      `Client Name: ${data.name}`,
+      `Company Name: ${data.company || "—"}`,
       `Email: ${data.email}`,
       `Phone: ${data.phone || "—"}`,
-      "",
-      "Inquiry:",
-      data.inquiry || "—",
+      `Service Interested In: ${data.service || "—"}`,
+      `Message / Inquiry Details: ${data.inquiry || "—"}`,
+      `Source Website: ${sourceWebsite}`,
     ].join("\n"),
   });
 

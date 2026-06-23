@@ -34,7 +34,7 @@ export function Hero() {
                 size="lg"
                 className="w-full bg-white text-primary hover:bg-white/90 sm:w-auto"
               >
-                Get a Free Compliance Review
+                Get in Touch
               </BookACallButton>
               <a
                 href="#social-proof"
