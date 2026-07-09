@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, Menu, LayoutGrid, User } from "lucide-react";
+import { Phone, Mail, Menu, LayoutGrid, User, LifeBuoy } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/sheet";
 import { useBookACallDialog } from "@/components/landing/BookACallDialog";
 import { services } from "@/components/landing/ServicesOverview";
+
+const SCREENCONNECT_URL = "https://iteksolutions.screenconnect.com/";
 
 function ListItem({
   title,
@@ -132,6 +134,12 @@ export function Header() {
               <Mail className="size-4" />
             </Button>
           </div>
+          <Button asChild size="sm" className="gap-1.5 font-semibold">
+            <a href={SCREENCONNECT_URL} target="_blank" rel="noopener noreferrer">
+              <LifeBuoy className="size-4 shrink-0" />
+              Get IT Support
+            </a>
+          </Button>
         </div>
 
         {/* Mobile: menu button + bottom sheet */}
@@ -179,6 +187,17 @@ export function Header() {
                 </Link>
               ))}
               <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
+                <Button asChild className="w-full justify-start gap-2 font-semibold">
+                  <a
+                    href={SCREENCONNECT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setSheetOpen(false)}
+                  >
+                    <LifeBuoy className="size-4" />
+                    Get IT Support
+                  </a>
+                </Button>
                 <MobileNavActions onClose={() => setSheetOpen(false)} />
               </div>
             </nav>
